@@ -1,0 +1,101 @@
+/* --------------------------------------------- */
+                    /* SECTION 1*/
+/* --------------------------------------------- */
+.font-small {
+    font-size: 1em;
+    opacity: .5;
+}
+.mrgn-2 {
+    margin: 2em;
+}
+.pointer {
+    cursor: pointer;
+}
+/* --------------------------------------------- */
+.sec-1-h2 {
+    margin-left: 3vw;
+    font-size: 2em;
+}
+.sec-1-grid-container-1 {
+    padding: 2em;
+    margin: 2em;
+    display: grid;
+    gap: 2em;
+    grid-template-areas:
+    "text-area text-area text-area text-area text-area image image image image image image image"; 
+
+}
+.sec-1-item {
+    border-radius: 1em;
+    height: 90%;
+}
+/* --------------- */
+.text-area {
+    grid-area: text-area;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.text-area div {
+    padding-top: 1em 0;
+}
+.text-area div:nth-child(2) {
+    font-size: 2em;
+}
+.text-area div:nth-child(3) {
+    margin-top: 1em;
+    padding: 1em;
+}
+.read-btn {
+    background-color:crimson;
+    border-radius: 1em;
+}
+.read-btn a {
+    font-size: 1em;
+    color: white
+}
+/* ------- */
+.image {
+    grid-area: image;
+    overflow: hidden;
+}
+.image a:hover .text-area h3 a {
+    text-decoration: underline;
+}
+/* ----------------------------------- */
+.hover:hover {
+    text-decoration: underline;
+}
+.sec-1-grid-container-2 {
+    display: grid;
+    grid-template-areas:
+    "art-1 art-2"
+    "art-3 art-4";
+    gap: 2em;
+    margin: 3em;
+}
+.sec-1-grid-container-2 div {
+    width: 100%;
+}
+.sec-1-grid-container-2 img {
+    border-radius: 24px;
+}
+.sec-1-art-1-box {
+    grid-area: art-1;
+}
+.sec-1-art-2-box {
+    grid-area: art-2;
+}
+.sec-1-art-3-box {
+    grid-area: art-3;
+}
+.sec-1-art-4-box {
+    grid-area: art-4;
+}
+.flexy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}

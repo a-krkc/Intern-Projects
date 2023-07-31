@@ -1,0 +1,46 @@
+/* --------------------------------------------- */
+                    /* SECTION 4*/
+/* --------------------------------------------- */
+.sec-4-container {
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.sec-4-grid-container {
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 2em;
+    grid-template-areas:
+    "sec-4-box-1 sec-4-box-2 sec-4-box-3";
+}
+.sec-4-item {
+    border-radius: 1em;
+    height: 90%;
+    border: 1px solid wheat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+.sec-4-head {
+    line-height: 1.5;
+    width: 50%;
+    margin: 2vw ;
+}
+.sec-4-head h3 {
+    font-size: 2em;
+}
+.sec-4-art-1-box {
+    grid-area: sec-4-box-1;
+}
+.sec-4-art-2-box {
+    grid-area: sec-4-box-2;
+}
+.sec-4-art-3-box {
+    grid-area: sec-4-box-3;
+}

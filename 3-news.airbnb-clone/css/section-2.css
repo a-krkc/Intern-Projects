@@ -1,0 +1,54 @@
+/* --------------------------------------------- */
+                    /* SECTION 2*/
+/* --------------------------------------------- */
+.sec-2-container {
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.sec-2-grid-container {
+    padding: 2em;
+    display: grid;
+    grid-template-areas:
+    "2-box-1 2-box-2 2-box-3";
+    gap: 2em;
+}
+.sec-2-item {
+    border-radius: 1em;
+    border: 1px solid wheat;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+.sec-2-head {
+    line-height: 1.5;
+    margin: 7vh 2vw;
+    font-size: 1.2em;
+}
+.sec-2-head p {
+    width: 50%;
+}
+.sec-2-head h3 {
+    font-size: 2em;
+}
+.sec-2-art-1-box {
+    grid-area: 2-box-1;
+}
+.sec-2-art-2-box {
+    grid-area: 2-box-2;
+}
+.sec-2-art-3-box {
+    grid-area: 2-box-3;
+}
+.flexy-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}

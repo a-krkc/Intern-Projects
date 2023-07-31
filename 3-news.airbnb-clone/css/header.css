@@ -1,0 +1,131 @@
+/* HEAD container */
+#head-container {
+    width: 100%;
+    border-bottom: 1px solid #d3cece;
+}
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* LOGO */
+#logo {
+    margin-right: auto;
+}
+.logo-box {
+    display: flex;
+    align-items: center;
+    padding-left: 5vw;
+}
+.logo-text {
+    font-size: 1.5em;
+    padding-left: 0.3em;
+}
+#logo img {
+    width: 2em;
+}
+/* -------------------------------- */
+/* NAVBAR */
+.navbar {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+/* NAV Items */
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+.nav-items a {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1em;
+}
+.nav-items a:hover {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+/* -------------------------------- */
+/* Language Select */
+.dropdown {
+    display: flex;
+    position: relative;
+}
+.drop-down {
+    padding: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.drop-down i {
+    margin-right: 5px;  
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 4em;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 1em;
+}
+.nested-content {
+    padding-left: 2em;
+}
+.dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #b5b2b2;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* -------------------------------- */
+/* SEARCH BUTTON */
+.search-btn i {
+    margin-right: .5em;
+}
+/* -------------------------------- */
+/* BAR Menu */
+.bar-menu {
+    display: none;
+    margin-right: 5vw;
+    cursor: pointer;
+}
+.fa-bars {
+    font-size: 2em;
+}
+#toggleMenu {
+    display: none;
+}
+.bar-content {
+    display: none;
+    position: absolute;
+    top: 4em;
+    right: 2em;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 1em;
+}
+.bar-content a {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #000;
+    padding: 12px 16px;
+    display: block;
+}
+.bar-content a:hover {
+    background-color: #b5b2b2;
+}
+#toggleMenu:checked ~ .bar-content {
+    display: flex;
+    flex-direction: column;
+}
