@@ -1,0 +1,9 @@
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Yatay sıra, 2 sütun */
+    grid-template-areas:
+      'box-1 box-2'
+      'box-3 box-4'
+      'box-5 box-6';
+  }
+}

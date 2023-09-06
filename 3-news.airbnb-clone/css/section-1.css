@@ -23,7 +23,6 @@
     gap: 2em;
     grid-template-areas:
     "text-area text-area text-area text-area text-area image image image image image image image"; 
-
 }
 .sec-1-item {
     border-radius: 1em;

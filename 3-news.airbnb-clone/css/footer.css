@@ -22,7 +22,7 @@ footer {
 /* footer-2 */
 .footer-2 {
     height: 15vh;
-    margin: 5vh 3vw;
+    margin: 5vh 0;
     font-size: smaller;
     opacity: .9;
 }

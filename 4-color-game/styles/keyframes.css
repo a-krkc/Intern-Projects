@@ -1,0 +1,10 @@
+@keyframes animate {
+  0%, 75%{
+    color: var(--white);
+    background-color: var(--blue);
+  }
+  50%, 100% {
+    background-color: var(--white);
+    color: var(--blue);
+  }
+}
