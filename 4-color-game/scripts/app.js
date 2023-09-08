@@ -6,32 +6,52 @@ const state = document.getElementById("state");
 const easy = document.getElementById("easy");
 const hard = document.getElementById("hard");
 const modal = document.querySelector("[data-modal]");
-const easyButton = document.querySelector("[easy-button]");
-const hardButton = document.querySelector("[hard-button]");
-let boxesAll = [];
-let threeBoxes = [];
+const boxesAll = crateBoxes();
+const threeBoxes = boxesAll.slice(0, 3);
 let getRGB;
 init();
+const spans = getSpans();
 
 function init() {
   //? modal
   document.addEventListener("DOMContentLoaded", firstLoad);
-  easyButton.addEventListener("click", easyGame);
-  hardButton.addEventListener("click", hardGame);
 
   easy.addEventListener("click", easyGame);
   hard.addEventListener("click", hardGame);
   newColor.addEventListener("click", changeNew);
   gridContainer.addEventListener("click", gridListener);
-  selectBoxes();
+  renderBoxes();
 }
 
 //!
-function selectBoxes() {
-  for (let i = 1; i < 7; i++) {
-    boxesAll.push(document.querySelector(`.box-${i}`));
-  }
-  for (let i = 0; i < 3; i++) {
-    threeBoxes.push(boxesAll[i]);
-  }
+function crateBoxes() {
+  // const boxes = Array(6).fill().map((_, index) => {
+  const boxes = Array.from({ length: 6 }).map((_, index) => {
+    const box = document.createElement("div");
+    const layer = document.createElement("div");
+    const span = document.createElement("span");
+
+    box.className = `box-${index + 1}`;
+    layer.className = "layer";
+    span.textContent = "Choose";
+
+    layer.appendChild(span);
+    box.appendChild(layer);
+
+    return box;
+  });
+  return boxes;
+}
+
+//!
+function renderBoxes() {
+  boxesAll.map((box) => gridContainer.appendChild(box));
+  // console.log(boxesAll);
+  // console.log(threeBoxes);
+}
+
+//!
+function getSpans() {
+  const s = Array.from(document.querySelectorAll(".layer>span"));
+  return s;
 }

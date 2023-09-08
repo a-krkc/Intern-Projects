@@ -2,13 +2,15 @@
 function changeColor(eOrH) {
   getRGB = getRandomColor();
   getRGB === "rgb(52, 53, 65)" && (getRGB = getRandomColor());
-  rgbText.innerText = getRGB;
+  rgbText.textContent = getRGB;
 
-  eOrH === "easy"
-    ? (threeBoxes.map((box) => (box.style.background = getRandomColor())),
-      (getRandomBoxFromArray(threeBoxes).style.background = getRGB))
-    : (boxesAll.map((box) => (box.style.background = getRandomColor())),
-      (getRandomBoxFromArray(boxesAll).style.background = getRGB));
+  if (eOrH === "easy") {
+    threeBoxes.map((box) => (box.style.background = getRandomColor()));
+    getRandomBoxFromArray(threeBoxes).style.background = getRGB;
+  } else {
+    boxesAll.map((box) => (box.style.background = getRandomColor()));
+    getRandomBoxFromArray(boxesAll).style.background = getRGB;
+  }
 }
 
 //!

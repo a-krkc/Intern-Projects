@@ -1,27 +1,17 @@
-.grid-container{
-  margin: 25px auto;
-  padding: 5px 2px;
+.grid-container {
+  width: 60%;
+  margin: 20px auto;
   display: grid;
+  grid-template-columns: repeat(3, 15vw);
+  grid-template-rows: repeat(2, 15vw);
   gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:'box-1 box-2 box-3'
-                      'box-4 box-5 box-6';
+  justify-content: center;
 }
 
-.box-1 {grid-area: box-1;}
-.box-2 {grid-area: box-2;}
-.box-3 {grid-area: box-3;}
-.box-4 {grid-area: box-4;}
-.box-5 {grid-area: box-5;}
-.box-6 {grid-area: box-6;}
-
-.box-1, .box-2, .box-3,
-.box-4, .box-5, .box-6 {
-  width: 15vw;
-  height: 25vh;
-  border-radius: 15px;
-  transition: transform .3s;
-
+[class ^= "box-"] {
+  border-radius: 1em;
+  transition: all .2s linear;
+  
   &:hover {
     transform: translate(-5px, 5px);
   }
@@ -31,14 +21,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
+    border-radius: 1em;
     transition: all .3s;
-    font-size: 1.5em;
 
     & span {
       color: transparent;
       transition: all .3s;
       z-index: -1;
+      font-size: 2vw;
     }
 
     &:hover span{

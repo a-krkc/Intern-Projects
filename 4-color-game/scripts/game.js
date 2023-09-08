@@ -6,9 +6,10 @@ function easyGame() {
     return;
   }
 
-  boxesAll.filter((box, index) => index > 2 && (box.style.display = "none"));
-  easy.classList.add("clicked");
-  hard.classList.remove("clicked");
+  boxesAll.filter((box, index) => index > 2 && displayNone(box));
+
+  easy.className = "clicked";
+  hard.className = "";
 
   boxVisible();
   changeColor("easy");
@@ -22,9 +23,10 @@ function hardGame() {
     return;
   }
 
-  boxesAll.map((box) => (box.style.display = "block"));
-  hard.classList.add("clicked");
-  easy.classList.remove("clicked");
+  boxesAll.map((box) => displayBlock(box));
+
+  hard.className = "clicked";
+  easy.className = "";
 
   boxVisible();
   changeColor("hard");
@@ -33,8 +35,8 @@ function hardGame() {
 //! color
 function choise(truthy, box) {
   truthy
-    ? (displayBlock(box), displayText(true), allColorize(box))
-    : (displayBlock(box), displayText(false), boxHidden(box));
+    ? (displayText(true), allColorize(box), addOrDeleteChoose())
+    : (displayText(false), boxHidden(box));
 }
 
 //!

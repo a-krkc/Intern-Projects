@@ -12,51 +12,32 @@
       <div class="for-bg">
         <div class="rgb-area">
           <p>THE GREAT</p>
-          <p id="rgb">WTTCG(WELCOME TO THE COLOR GAME)</p>
+          <p id="rgb">RGB(THE COLOR GAME)</p>
           <p>COLOR GAME</p>
         </div>
       </div>
-      <div class="choose-play">
-        <div>
+      <div class="nav">
+        <div class="choose-play">
           <a href="#" id="new-color">NEW COLORS</a>
-        </div>
-        <div>
           <p id="state"></p>
-        </div>
-        <div>
           <a href="#" id="easy">EASY</a>
           <a href="#" id="hard">HARD</a>
         </div>
       </div>
 
       <div class="grid-container">
-        <div class="box-1">
+        <!-- <div class="box-1">
           <div class="layer"><span>Choose</span></div>
-        </div>
-        <div class="box-2">
-          <div class="layer"><span>Choose</span></div>
-        </div>
-        <div class="box-3">
-          <div class="layer"><span>Choose</span></div>
-        </div>
-        <div class="box-4">
-          <div class="layer"><span>Choose</span></div>
-        </div>
-        <div class="box-5">
-          <div class="layer"><span>Choose</span></div>
-        </div>
-        <div class="box-6">
-          <div class="layer"><span>Choose</span></div>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <dialog data-modal>
       <div class="text">SELECT DIFFICULTY</div>
-      <button easy-button>Easy Game</button>
-      <button hard-button>Hard Game</button>
+      <button onclick="easyGame()" easy-button>Easy Game</button>
+      <button onclick="hardGame()" hard-button>Hard Game</button>
     </dialog>
-    
+
     <script src="scripts/listener.js"></script>
     <script src="scripts/color.js"></script>
     <script src="scripts/display.js"></script>
