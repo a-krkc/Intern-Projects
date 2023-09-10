@@ -2,18 +2,20 @@
   width: 60%;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(3, 15vw);
-  grid-template-rows: repeat(2, 15vw);
+  grid-template-columns: repeat(3, 12vw);
+  grid-template-rows: repeat(2, 12vw);
   gap: 15px;
   justify-content: center;
 }
 
-[class ^= "box-"] {
-  border-radius: 1em;
-  transition: all .2s linear;
-  
+[class^="box-"] {
+  /* border-radius: 1em; */
+  border-radius: 50%;
+  transition: all 0.2s linear;
+
   &:hover {
-    transform: translate(-5px, 5px);
+    /* transform: translate(-5px, 5px); */
+    transform: scale(115%);
   }
 
   & div {
@@ -22,19 +24,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 1em;
-    transition: all .3s;
+    transition: all 0.3s;
 
     & span {
       color: transparent;
-      transition: all .3s;
+      transition: all 0.3s;
       z-index: -1;
       font-size: 2vw;
     }
 
-    &:hover span{
+    &:hover span {
       color: var(--white);
       text-shadow: var(--black) -1px -1px 0.2vw, var(--black) 1px 1px 0.2vw;
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 }
