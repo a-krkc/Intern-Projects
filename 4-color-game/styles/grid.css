@@ -8,13 +8,11 @@
   justify-content: center;
 }
 
-[class^="box-"] {
-  /* border-radius: 1em; */
+.box {
   border-radius: 50%;
   transition: all 0.2s linear;
 
   &:hover {
-    /* transform: translate(-5px, 5px); */
     transform: scale(115%);
   }
 

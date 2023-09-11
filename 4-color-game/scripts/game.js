@@ -33,10 +33,10 @@ function hardGame() {
 }
 
 //! color
-function choise(truthy, box) {
+function choise(truthy, boxIndex) {
   truthy
-    ? (displayText(true), allColorize(box), addOrDeleteChoose())
-    : (displayText(false), boxHidden(box));
+    ? (displayText(true), allColorize(), addOrDeleteChoose())
+    : (displayText(false), boxHidden(boxIndex));
 }
 
 //!

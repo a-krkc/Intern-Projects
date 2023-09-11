@@ -9,16 +9,17 @@ function firstLoad() {
 
 //!
 function gridListener(e) {
-  let computedBgColor;
-  let getBox;
+  const className = e.target.className;
+  const parent = e.target.parentElement;
+  if (className === "layer") {
+    const computedBgColor = getComputedStyle(parent).backgroundColor;
+    const foundIndex = boxesAll.findIndex((i) => {
+      return getComputedStyle(i).backgroundColor === computedBgColor;
+    });
 
-  if (e.target.className === "layer") {
-    boxesAll.filter(
-      (i) =>
-        i.className === e.target.parentElement.className &&
-        ((computedBgColor = getComputedStyle(i).backgroundColor), (getBox = i))
-    );
-    computedBgColor === getRGB ? choise(true, getBox) : choise(false, getBox);
+    computedBgColor === getRGB
+      ? choise(true, foundIndex)
+      : choise(false, foundIndex);
   }
 }
 

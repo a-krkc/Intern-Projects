@@ -31,7 +31,7 @@ function crateBoxes() {
     const layer = document.createElement("div");
     const span = document.createElement("span");
 
-    box.className = `box-${index + 1}`;
+    box.className = `box`;
     layer.className = "layer";
     span.textContent = "Choose";
 

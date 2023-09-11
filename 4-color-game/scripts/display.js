@@ -17,7 +17,7 @@ function displayText($) {
 
 //!
 function boxHidden($) {
-  boxesAll.find((i) => i === $ && (i.style.visibility = "hidden"));
+  boxesAll[$].style.visibility = "hidden";
 }
 
 //!
