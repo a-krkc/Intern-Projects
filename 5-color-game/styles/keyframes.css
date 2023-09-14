@@ -1,0 +1,10 @@
+@keyframes animate {
+  to {
+    color: var(--white);
+    background-color: var(--red);
+  }
+  from {
+    background-color: var(--white);
+    color: var(--red);
+  }
+}

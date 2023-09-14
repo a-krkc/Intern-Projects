@@ -1,0 +1,44 @@
+dialog::backdrop {
+  backdrop-filter: blur(5px);
+}
+
+[data-modal] {
+  background-color: var(--modal);
+  margin: auto;
+  width: 400px;
+  text-align: center;
+  font-size: 1.5em;
+  border-radius: 30px;
+}
+
+[data-modal] > * {
+  color: var(--text);
+}
+
+[data-modal] .text {
+  margin-top: 50px;
+}
+
+[easy-button] {
+  padding: 1em;
+  margin: 40px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: all .4s;
+
+  &:hover {
+    background-color: var(--light);
+  }
+}
+
+[hard-button] {
+  padding: 1em;
+  margin: 40px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: all .4s;
+
+  &:hover {
+    background-color: var(--light);
+  }
+}
