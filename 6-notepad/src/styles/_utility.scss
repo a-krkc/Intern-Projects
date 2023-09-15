@@ -1,0 +1,52 @@
+@use "colors" as *;
+
+#head {
+  & .btn {
+    padding: 2px 12px;
+    margin: 3px;
+    border-radius: 10px;
+
+    &:hover:not(.bg-yellow) {
+      background-color: $hover-bg;
+    }
+  }
+
+  & .red {
+    color: $red;
+  }
+
+  & .bg-yellow {
+    background-color: $yellow;
+  }
+
+  & .first {
+    margin-left: auto;
+  }
+
+  & .end {
+    margin: 0 auto;
+  }
+
+  & .custom-tooltip {
+    position: relative;
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $button-after-bg;
+      color: $white;
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}

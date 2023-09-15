@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./src/assets/favicon.jpg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="src/styles/style.scss" /> -->
+    <title>Notepad</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="area">
+        <div id="head">
+          <button class="btn first custom-tooltip" data-tooltip="Bold">
+            <i class="fa-solid fa-bold"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Italic">
+            <i class="fa-solid fa-italic"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Underline">
+            <i class="fa-solid fa-underline"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Left">
+            <i class="fa-solid fa-align-left"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Center">
+            <i class="fa-solid fa-align-center"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Align Right">
+            <i class="fa-solid fa-align-right"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Justify">
+            <i class="fa-solid fa-align-justify"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Unordered List">
+            <i class="fa-solid fa-list-ul"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Ordered List">
+            <i class="fa-solid fa-list-ol"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Font Family">
+            <i class="fa-solid fa-font"></i>
+          </button>
+          <button
+            class="btn bg-yellow custom-tooltip"
+            data-tooltip="Background Color"
+          >
+            <i class="fa-solid fa-font"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Text Color">
+            <i class="fa-solid fa-font red"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Font Size">
+            <i class="fa-solid fa-text-height"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Image">
+            <i class="fa-regular fa-image"></i>
+          </button>
+          <button class="btn custom-tooltip" data-tooltip="Link">
+            <i class="fa-solid fa-link"></i>
+          </button>
+          <button class="btn end custom-tooltip" data-tooltip="Save">
+            <i class="fa-regular fa-floppy-disk"></i>
+          </button>
+        </div>
+        <div id="input-area">
+          <div id="input" contenteditable="true"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
