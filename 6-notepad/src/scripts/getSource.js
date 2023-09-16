@@ -4,11 +4,11 @@ export function insertImage() {
     "Please insert a picture url:",
     "https://example.com/image.jpg"
   );
-
   if (getImageUrl !== null || getImageUrl !== "") {
     const imgTag = '<img src="' + getImageUrl + '" alt="Resim" width="250">';
     document.execCommand("insertHTML", false, imgTag);
   }
+  document.execCommand("createLink", false, url);
 }
 //! ------------------------------------------------------------------------------------------------
 export function addLink() {
@@ -17,16 +17,10 @@ export function addLink() {
     "https://www.example.com"
   );
 
-  if (url !== null || url !== "") {
-    const selectedText = window.getSelection().toString();
-    const linkText =
-      '<a href="' +
-      url +
-      '" target="_blank" style="cursor: pointer;">' +
-      selectedText +
-      "</a>";
-
-    document.execCommand("insertHTML", false, linkText);
+  if (url === "" || url === "none") {
+    document.execCommand("unlink", false, null);
+  } else {
+    document.execCommand("createLink", false, url);
   }
 }
 //! ------------------------------------------------------------------------------------------------

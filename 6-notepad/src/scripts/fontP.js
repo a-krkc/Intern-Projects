@@ -1,42 +1,40 @@
 //! ------------------------------------------------------------------------------------------------
 export function fontFamily() {
-  const getFamily = prompt("Font family: ", "Arial - 'san serif' - Monospace");
+  const getFamily = prompt(
+    "Font family: ",
+    "Arial - 'san serif' - Monospace - none or empty to default"
+  );
 
-  if (getFamily !== "") {
+  if (getFamily === "" || getFamily === "none") {
+    document.getElementById("input").style = `font-family: "san serif"`;
+  } else {
     document.getElementById("input").style = `font-family: ${getFamily}`;
   }
 }
 //! ------------------------------------------------------------------------------------------------
 export function backgroundColor() {
-  const getColor = prompt(
+  const color = prompt(
     "Font background color: ",
-    "example: blue or enter empty value to clear"
+    "example: blue or enter empty-none to clear"
   );
-  let color;
-  if (getColor.includes("#") || getColor.includes("rgb")) {
-    color = "none";
+
+  if (color === "none" || color === "") {
+    document.execCommand("removeFormat", false, null);
   } else {
-    color = getColor;
+    document.execCommand("hiliteColor", false, color);
   }
-  const selectedText = window.getSelection().toString();
-  const styledText = `<span style="background-color:${color};">${selectedText}</span>`;
-  document.execCommand("insertHTML", false, styledText);
 }
 //! ------------------------------------------------------------------------------------------------
 export function fontColor() {
-  const getColor = prompt(
+  const color = prompt(
     "Font color: ",
     "example: blue or enter empty value to clear"
   );
-  let color;
-  if (getColor.includes("#") || getColor.includes("rgb")) {
-    color = "none";
+  if (color === "none" || color === "") {
+    document.execCommand("removeFormat", false, null);
   } else {
-    color = getColor;
+    document.execCommand("foreColor", false, color);
   }
-  const selectedText = window.getSelection().toString();
-  const styledText = `<span style="color:${color};">${selectedText}</span>`;
-  document.execCommand("insertHTML", false, styledText);
 }
 //! ------------------------------------------------------------------------------------------------
 export function fontSize() {
