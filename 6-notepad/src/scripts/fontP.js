@@ -44,7 +44,7 @@ export function fontSize() {
       "example: between 16 - 32 or enter empty value to default(28)"
     )
   );
-  if (getSize >= 16 && getsize <= 32) {
+  if (getSize >= 16 && getSize <= 32) {
     document.getElementById("input").style = `font-size: ${getSize}px`;
   } else {
     document.getElementById("input").style = `font-size: 28px`;
