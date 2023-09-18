@@ -14,10 +14,9 @@
   border-radius: 0.75em;
   overflow: hidden;
   box-shadow: 0px 0px 50px 7.5px $primary-bg-complement;
-
   & #head {
     background-color: $second-bg;
-    height: 7.5vh;
+    min-height: 7.5vh;
     width: 90vw;
 
     @include flexy;
@@ -25,12 +24,12 @@
 
   & #input-area {
     & #input {
+      overflow-y: scroll;
       height: 67.5vh;
       width: 100%;
       padding: 36px 54px;
       outline: none;
       background-color: $textarea-bg;
-      // scroll-behavior: ;
     }
   }
 }
