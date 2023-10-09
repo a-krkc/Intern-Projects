@@ -1,19 +1,18 @@
-"""
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>The Color Game</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <div class="for-bg">
         <div class="rgb-area">
           <p>THE GREAT</p>
-          <p id="rgb">RGB(THE COLOR GAME)</p>
+          <p id="rgb">RGB(COLOR GAME)</p>
           <p>COLOR GAME</p>
         </div>
       </div>
@@ -25,213 +24,17 @@
           <a href="#" id="hard">HARD</a>
         </div>
       </div>
-      <div class="grid-container">
-      </div>
+      <div class="grid-container"></div>
     </div>
     <dialog data-modal>
       <div class="text">SELECT DIFFICULTY</div>
       <button onclick="easyGame()" easy-button>Easy Game</button>
       <button onclick="hardGame()" hard-button>Hard Game</button>
     </dialog>
-    <script src="listener.js"></script>
-    <script src="color.js"></script>
-    <script src="display.js"></script>
-    <script src="game.js"></script>
-    <script src="app.js"></script>
+    <script src="scripts/listener.js"></script>
+    <script src="scripts/color.js"></script>
+    <script src="scripts/display.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
-"""
-const gridContainer = document.querySelector(".grid-container");
-const rgbArea = document.querySelector(".rgb-area");
-const rgbText = document.getElementById("rgb");
-const newColor = document.getElementById("new-color");
-const state = document.getElementById("state");
-const easy = document.getElementById("easy");
-const hard = document.getElementById("hard");
-const modal = document.querySelector("[data-modal]");
-const boxesAll = crateBoxes();
-const threeBoxes = boxesAll.slice(0, 3);
-let getRGB;
-init();
-const spans = getSpans();
-function init() {
-  //? modal
-  document.addEventListener("DOMContentLoaded", firstLoad);
-  easy.addEventListener("click", easyGame);
-  hard.addEventListener("click", hardGame);
-  newColor.addEventListener("click", changeNew);
-  gridContainer.addEventListener("click", gridListener);
-  console.log(boxesAll);
-  renderBoxes();}
-function crateBoxes() {
-  const boxes = Array.from({ length: 6 }).map((_, index) => {
-    const box = document.createElement("div");
-    const layer = document.createElement("div");
-    const span = document.createElement("span");
-    box.className = `box`;
-    layer.className = "layer";
-    span.textContent = "Choose";
-    layer.appendChild(span);
-    box.appendChild(layer);
-    return box;  });
-  return boxes;}
-function renderBoxes() {
-  boxesAll.map((box) => gridContainer.appendChild(box));
-function getSpans() {
-  const s = Array.from(document.querySelectorAll(".layer>span"));
-  return s;}
-"""
-function changeColor(eOrH) {
-  getRGB = getRandomColor();
-  getRGB === "rgb(52, 53, 65)" && (getRGB = getRandomColor());
-  rgbText.textContent = getRGB;
-  if (eOrH === "easy") {
-    threeBoxes.map((box) => (box.style.background = getRandomColor()));
-    getRandomBoxFromArray(threeBoxes).style.background = getRGB;
-  } else {
-    boxesAll.map((box) => (box.style.background = getRandomColor()));
-    getRandomBoxFromArray(boxesAll).style.background = getRGB;  }}
-
-function getRandomColor() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  const rgbColor = `rgb(${r}, ${g}, ${b})`;
-  return rgbColor;}
-function getRandomBoxFromArray(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];}
-function changeNew() {
-  reset();
-  easy.className === "clicked" ? changeColor("easy") : changeColor("hard");}
-function allColorize() {
-  boxesAll.map((i) => (i.style.backgroundColor = getRGB));
-  rgbArea.style.backgroundColor = getRGB;
-  newColor.textContent = "Play Again!";
-  newColor.style.animation = "animate .6s infinite alternate";
-  removeListeners();}
-"""
-function displayNone($) {
-  $.style.display = "none";}
-function displayBlock($) {
-  $.style.display = "block";}
-function displayText($) {
-  $
-    ? (state.textContent = "CONGRATULATIONS!")
-    : (state.textContent = "Try Again!");}
-function boxHidden($) {
-  boxesAll[$].style.visibility = "hidden";}
-function boxVisible() {
-  boxesAll.map((i) => (i.style.visibility = "visible"));}
-function stateTextReset() {
-  state.textContent = "";
-  addOrDeleteChoose(true);}
-function addOrDeleteChoose($) {
-  $
-    ? spans.map((i) => (i.textContent = "Choose"))
-    : spans.map((i) => (i.textContent = ""));}
-"""
-function easyGame() {
-  modal.open && modal.close();
-  if (easy.className === "clicked") {
-    return;}
-  boxesAll.filter((box, index) => index > 2 && displayNone(box));
-  easy.className = "clicked";
-  hard.className = "";
-  boxVisible();
-  changeColor("easy");}
-function hardGame() {
-  modal.open && modal.close();
-  if (hard.className === "clicked") {return;}
-  boxesAll.map((box) => displayBlock(box));
-  hard.className = "clicked";
-  easy.className = "";
-  boxVisible();
-  changeColor("hard");}
-function choise(truthy, boxIndex) {
-  truthy
-    ? (displayText(true), allColorize(), addOrDeleteChoose())
-    : (displayText(false), boxHidden(boxIndex));}
-function reset() {
-  boxVisible();
-  reInitListeners();
-  newColor.textContent = "NEW COLORS";
-  rgbArea.style.backgroundColor = "rgb(30, 132, 180)";
-  newColor.style.animation = "none";
-  stateTextReset();}
-"""
-function firstLoad() {
-  document.addEventListener("keydown",(e) => e.key === "Escape" && e.preventDefault());
-  modal.showModal();}
-function gridListener(e) {
-  const className = e.target.className;
-  const parent = e.target.parentElement;
-  if (className === "layer") {
-    const computedBgColor = getComputedStyle(parent).backgroundColor;
-    const foundIndex = boxesAll.findIndex((i) => {
-      return getComputedStyle(i).backgroundColor === computedBgColor;});
-    computedBgColor === getRGB
-      ? choise(true, foundIndex)
-      : choise(false, foundIndex);}}
-function removeListeners() {
-  gridContainer.removeEventListener("click", gridListener);
-  easy.removeEventListener("click", easyGame);
-  hard.removeEventListener("click", hardGame);}
-function reInitListeners() {
-  easy.addEventListener("click", easyGame);
-  hard.addEventListener("click", hardGame);
-  gridContainer.addEventListener("click", gridListener);}
-"""
-.grid-container {width: 60%;margin: 20px auto;display: grid;
-  grid-template-columns: repeat(3, 12vw);grid-template-rows: repeat(2, 12vw);gap: 15px;
-  justify-content: center;}
-.box {border-radius: 50%;transition: all 0.2s linear;
-  &:hover {transform: scale(115%);}
-
-  & div {height: 100%;display: flex;align-items: center;justify-content: center;border-radius: 1em;transition: all 0.3s;
-    & span {color: transparent;transition: all 0.3s;z-index: -1;font-size: 2vw;}
-
-    &:hover span {color: var(--white);text-shadow: var(--black) -1px -1px 0.2vw, var(--black) 1px 1px 0.2vw;
-      transition: all 0.3s;}}}
-"""
-@keyframes animate {to {
-    color: var(--white);background-color: var(--red);}
-  from {background-color: var(--white);color: var(--red);}}
-"""
-.container {width: 100%;height: 100vh;background-color: var(--gray);display: flex;flex-direction: column;}
-
-.rgb-area {width: 100vw;background-color: var(--blue);margin: 0 auto;
-  text-align: center;padding-top: 20px;color: var(--white);transition: all 0.3s;
-  & p:nth-child(odd) {font-size: 1.5vw;}
-
-  & p:last-child {padding-bottom: 1em;}
-
-  & p:nth-child(even) {text-transform: uppercase;font-size: 5vw;padding: 10px 0;}}
-.nav {background-color: var(--white);width: 100%;}
-.choose-play {width: 50%;background-color: var(--white);display: flex;justify-content: space-around;
-  align-items: center;font-size: 2em;color: var(--blue);text-align: center;
-  margin: 0 auto;& a {font-size: 1.7vw;transition: all 0.2s linear;padding: 0.5vw;}
-& p {font-size: 1.5vw;margin: 0 auto;color: var(--red);text-shadow: var(--black) -1px -1px 0.2vw;}
-& a:hover {background-color: var(--blue);color: var(--white);transition: all 0.2s linear;cursor: default;}}
-.clicked {background-color: var(--blue);color: var(--white);}
-"""
-dialog::backdrop {backdrop-filter: blur(5px);}
-[data-modal] {background-color: var(--modal);margin: auto;
-  width: 400px;text-align: center;font-size: 1.5em;border-radius: 30px;}
-[data-modal] > * {color: var(--text);}
-[data-modal] .text {margin-top: 50px;}
-[easy-button] {padding: 1em;margin: 40px 20px;font-size: 16px;border-radius: 10px;transition: all .4s;&:hover {background-color: var(--light);}}
-[hard-button] {padding: 1em;margin: 40px 20px;font-size: 16px;border-radius: 10px;transition: all .4s;
-&:hover {background-color: var(--light);}}
-"""
-""":root {--gray: rgb(52, 53, 65);--blue: rgb(30, 132, 180);--white: #fff;--modal: rgb(229, 216, 190);--text: rgb(93, 94, 99);--light: rgb(205, 207, 216);--black: rgb(0, 0, 0);--red: rgb(255, 0, 0);}
-*, *::after, *::before {box-sizing: border-box;padding: 0;margin: 0;font-family: sans-serif;letter-spacing: .03em;font-weight: bold;user-select: none;font-size: 16px;}
-a {text-decoration: none;color: var(--blue);}
-"""
-@import url(reset.css);@import url(main.css);
-@import url(grid.css);@import url(keyframes.css);
-@import url(modal.css);/* @import url(responsive.css); */
-"""
-favicon.ico
-"""
-
